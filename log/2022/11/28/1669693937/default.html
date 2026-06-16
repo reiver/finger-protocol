@@ -1,21 +1,71 @@
-wiki/1
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" vocab="https://schema.org/" typeof="BlogPosting">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/text-readability/readmode.css" />
+<title>The Finger Protocol As A Mirror And CDN Protocol</title>
+<meta name="author" content="Charles Iliya Krempeaux" />
+</head>
+<body>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Home</a></li>
+		<li><a href="../../../../../">Finger Protocol</a></li>
+		<li><a href="../../../../">Blog</a></li>
+		<li><a href="./" aria-current="page">The Finger Protocol As A Mirror And CDN Protocol</a></li>
+	</ol>
+</nav>
 
-§ The Finger-Protocol As A Mirror And CDN Protocol
-
-⸺ by Charles Iliya Krempeaux
-
-⸺ published 2022-11-28T19:52:17-08:00
-
-You could use **finger** as a mirror & a CDN —
-
-The type of [[finger-protocol]] request many are used to —
-
-finger joeblow@example.com 
-
-I.e., ask "example.com" for joeblow's content.
-
-But you could request someone else's from a different server with:
-
+<main>
+<article>
+	<header>
+		<hgroup>
+			<h1 property="headline">The Finger Protocol As A Mirror And CDN Protocol</h1>
+			<p>
+				Using finger forwarding / finger relaying / finger bouncing.
+			</p>
+		</hgroup>
+		<p>
+			by <a href="https://reiver.link/">Charles Iliya Krempeaux</a> (reiver) on <time property="datePublished" datetime="2022-11-28T19:52:17-08:00">2022-11-28</time>
+		</p>
+	</header>
+	<p>
+		You could use <strong>finger</strong> as a mirror and a <abbr title="content delivery network">CDN</abbr> —
+	</p>
+	<p>
+		The type of <strong>finger protocol</strong> request many are used to —
+	</p>
+	<figure>
+		<pre><code>
+finger joeblow@example.com
+		</code></pre>
+	</figure>
+	<p>
+		I.e., ask "example.com" for joeblow's content.
+	</p>
+	<p>
+		But you can request someone else's content from a different server with:
+	</p>
+	<figure>
+		<pre><code>
 finger joeblow@example.com@reiver.link
-
-I.e., ask "reiver.link" for the content for "joeblow" from "example.com".
+		</code></pre>
+	</figure>
+	<p>
+		I.e., ask "reiver.link" for the content for "joeblow" from "example.com".
+	</p>
+	<p>
+		Traditionally this would cause "reiver.link" to make a new request to "example.com".
+		But, this behavior <em>could</em> be modified.
+		Content could be cached.
+		Content could be mirrored.
+	</p>
+	<footer>
+		<include src="../../../../../author.html" />
+		<include src="../../../../../license.html" />
+	</footer>
+</article>
+</main>
+</body>
+</html>
