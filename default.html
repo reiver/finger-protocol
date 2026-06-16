@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" vocab="https://schema.org/" typeof="TechArticle">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="readmode.css" />
+<title>Finger Protocol</title>
+<meta name="author" content="Charles Iliya Krempeaux" />
+</head>
+<body>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Home</a></li>
+		<li><a href="./" aria-current="page">Finger Protocol</a></li>
+	</ol>
+</nav>
+
+<main>
+<article>
+	<header>
+		<hgroup>
+			<h1 property="headline">Finger Protocol</h1>
+			<p>
+				The finger protocol is an early, simple network protocol.
+			</p>
+		</hgroup>
+		<p>
+			by <a href="https://reiver.link/">Charles Iliya Krempeaux</a> (reiver)
+		</p>
+	</header>
+	<p>
+		The <strong>finger protocol</strong> is a simple, friendly, human-oriented & human-legible protocol, that has its origins in the early 1970s.
+	</p>
+	<p>
+		Although some of the usage of the <strong>finger protocol</strong> was similar to a directory-service for humans — it evolved into one of the early Internet-based <strong>social networks</strong>.
+	</p>
+	<p>
+		(One should note that online social networks existed on other pre-Internet networks.
+		So, while the <strong>finger protocol</strong> wasn't the first online social network — it is important because of just how important the Internet became.)
+	</p>
+	<p>
+		It was not uncommon for people to use <strong>finger</strong> to publish:
+	</p>
+	<ul>
+		<li>
+			personal information,
+		</li>
+		<li>
+			contact information,
+		</li>
+		<li>
+			references to that person's presence on other parts of the Internet,
+		</li>
+		<li>
+			a short biography,
+		</li>
+		<li>
+			a journal,
+		</li>
+		<li>
+			articles,
+		</li>
+		<li>
+			jokes,
+		</li>
+		<li>
+			(so called) ASCII art (which could contain non-ASCII characters),
+		</li>
+		<li>
+			animations,
+		</li>
+		<li>
+			<em>and more</em>.
+		</li>
+		<li>
+	</ul>
+	<p>
+		Like with a lot of things from the early Internet — the <strong>finger-protocol</strong> is decentralized.
+	</p>
+	<p>
+		The finger-protocol was created and evolved over time, by the software developers who created the finger-client software, and the finger-server software (as well as the user who chose to use or not use a particular implementation).
+		Later on — at least 6 years after the finger-protocol was first created, IETF RFC-742 was published, in an attempt to describe the pre-existing finger-protocol.
+		I.e., IETF RFC-742 did not create a new protocol, but instead just tried to document and describe what was created by software developers outside of the IETF.
+		14 years later after RFC-742 was published, and at least 20 years after the finger-protocol first existed and was evolving — RFC-1288 was published in an attempt to remove some of (what some perceived as) the ambiguity of RFC-742, to make it easier for both people who would implement a finger-protocol client or server, and to provide some guidance.
+		However RFC-1288 added restrictions to the finger-protocol that did NOT exist in RFC-742.
+		In 1991 some of these restrictions may have seemed reasonable, however today (in the year 2022) some of the restrictions probably do not make as much sense (and should probably be reconsidered).
+		This document is in part an attempt to reconsider one of these restrictions that RFC-1288 introduced but which didn't exist in RFC-742 — in particular, <strong>how to handle a switch other than the "/W" switch</strong>.
+	</p>
+	<p>
+		Historically people and even machines were identified by user names at a host name.
+		For example:
+	</p>
+	<p>
+		<code>cikrempeaux@reiver.link</code>
+	</p>
+	<p>
+		Someone could request information <em>from</em> or <em>about</em> a <strong>user</strong> at a <strong>host</strong> using one of the historic <code>finger</code> terminal applications.
+		On the command-line, a simple finger request could be performed with something like the following:
+	</p>
+	<figure>
+		<pre><code>
+finger cikrempeaux@reiver.link
+		</code></pre>
+	</figure>
+	<p>
+		A <strong>finger protocol <em>server</em></strong> could return anything it wanted.
+		But the spirit of the finger-protocol is that the output should be <a href="/human-legible">human-legible</a> first, given what technologies are available at the time (and <a href="/programmer-legible">programmer-legible</a> & <a href="/machine-legible">machine-legible</a> second if at all).
+	</p>
+	<p>
+		Also, being a simple protocol, made creating a simple client often trivial for many.
+		For example:
+	</p>
+	<figure>
+		<pre><code>
+echo '/W cikrempeaux' | nc reiver.link 79
+		</code></pre>
+	</figure>
+	<section>
+		<h1>Small-Net</h1>
+		<p>
+			Nowadays (as the year 2022), the <strong>finger protocol</strong> is considered a <a href="/small-net">small-net</strong> protocol.
+		</p>
+	</section>
+	<section>
+		<h1>Example</h1>
+		<p>
+			Here is a very simple example finger response, using a more vintage format:
+		</p>
+		<figure>
+			<pre><code>
+Login: reiver                           Name: Charles Iliya Krempeaux
+Directory: /home/reiver                Shell: /usr/bin/bash
+Last login Thu Dec 01 02:05:59 2022 UTC
+No Mail.
+Plan:
+
+
+          _
+         ( )
+          H
+          H
+         _H_ 
+      .-'-.-'-.
+     /         \
+    |           |
+    |   .-------'._
+    |  / /  '.' '. \
+    |  \ \ @   @ / / 
+    |   '---------'        
+    |    _((_))_((_))_((_))_|  
+    |  .'-+-+-+|  
+    |  '.-+-+-+|         Hello world!
+    |    """""" |
+    '-._((_))   _((_)).-'
+         """
+			</code></pre>
+		</figure>
+	</section>
+	<section>
+		<h1>Finger-Protocol Advantages</h1>
+		<p>
+			The <strong>finger protocol</strong> has a number of advantages:
+		</p>
+		<ul>
+			<li>
+				the <strong>finger protocol</strong> is a <strong>human-legible</strong> protocol (rather than just a <strong>programmer-legible</strong> or <strong>machine-legible</strong> protocol),
+			</li>
+			<li>
+				the <strong>finger protocol</strong> is <strong>simple enough</strong> for even a more <em>junior</em> software developer to be able to understand it,
+			</li>
+			<li>
+				the <strong>finger protocol</strong> and its <em>default</em> data-format are simple enough for a competent software developer to be able to create a (simple) working client as a weekend project,
+			</li>
+			<li>
+				the <strong>finger-protocol</strong> is simple enough for a competent software developer to be able to create a (simple) working server as a weekend project,
+			</li>
+			<li>
+				all of a (single) user's content is provided as a <strong>single download</strong>,
+			</li>
+			<li>
+				a client could make a request from a server for a user who is <em>not</em> (necessarily) local to that server,
+			</li>
+			<li>
+				key-value pairs are in a format that is <strong>human-legible</strong>, <strong>programmer-legible</strong>, and <strong>machine-legible</strong>.
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Finger-Protocol Disadvantges</h1>
+		<p>
+			The <strong>finger protocol</strong> also has a number of disadvantages:
+		</p>
+		<ul>
+			<li>
+				when a client receives a response from a server, it does not know whether it received all the data or not, as, for example, the network connection could have been disconnected prematurely, but there is no way to detect this,
+			</li>
+			<li>
+				there is no <em>tamper detection</em>,
+			</li>
+			<li>
+				there is no way to determine whether the finger (<code>.plan</code>) file was actually from the user whose content was requested,
+			</li>
+			<li>
+				there is no way to choose privacy,
+			</li>
+			<li>
+				the entire finger (<code>.plan</code>) file must be download each time, even if the exact same finger (<code>.plan</code>) file was previously downloaded,
+			</li>
+			<li>
+				identity is strictly tied to an Internet domain,
+			</li>
+			<li>
+				there is no official way of segmenting the download (into sub-pages).
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h1>History</h1>
+		<p>
+			Here is some history of the <strong>finger protocol</strong> —
+		</p>
+		<p>
+			On <time datetime="1990-02-19">February 19th, 1990</time>, <strong>Lester Donald Earnest</strong> was quoted (by Sean Colbath) on the <strong>Usenet</strong> group <code>alt.folklore.computers</code> saying:
+		</p>
+		</blockquote>
+			<p>
+				Finger was named for the act of pointing.
+				I recall that sometime after it became popular I received a message from a system administrator who thought that it should be renamed so that users would not have to use a "dirty" word.
+				I gave his request all the consideration that it deserved.
+			</p>
+			<p>
+				I created Finger around 1971 to meet a local need at the Stanford Artifical Intelligence Lab.
+				People generally worked long hours there, often with unpredictable schedules.
+				When you wanted to meet with some group, it was important to know who was there and when the others would likely reappear.
+				It also was important to be able to locate potential volleyball players when you wanted to play, Chinese food freaks when you wanted to eat, and antisocial computer users when it appeared that something strange was happening on the system.
+			</p>
+			<p>
+				The only tool then available for seeing who was running on our DEC-10 computer was a WHO program that showed IDs and terminal line numbers for people who were logged in.
+				There was no information available on people who were not logged in.
+				I frequently saw people running their fingers down the WHO display saying things like "There's Don and that's Pattie but I don't know when Tom was last seen." or "Who in hell is VVK and where does line 63 go?"
+			</p>
+			<p>
+				I wrote Finger and developed the supporting database to provide this information in traditional human terms -- real names and places.
+				Because I preferred to talk face to face rather than through the computer or telephone, I put in the feature that tells how long the terminal had been idle, so that I could assess the likelihood that I would find them there if I walked down the hall.
+			</p>
+			<p>
+				The program was an instant hit.
+				Some people asked for the Plan file feature so that they could explain their absence or how they could be reached at odd times, so I added it.
+				I found it interesting that this feature evolved into a forum for social commentary and amusing observations.
+			</p>
+			<p>
+				Finger was picked up by a number of other groups with DEC-10 computers that were connected to Arpanet -- software flowed in all directions around the net in those days.
+				It later migrated to Un*x, probably via U.C. Berkeley.
+				Somewhere along the line the idea arose to provide a network Finger service.
+				I don't remember who suggested that but it seemed like a good idea at the time so I stuck it in.
+				Some other anxious people wanted to be able to verify that their mail was delivered to specific addressees, so the Mail feature was also added.
+			</p>
+			<p>
+				While I was somewhat surprised by the popularity of Finger, it has not been as successful as an earlier program that I invented -- the spelling checker.
+				It too was created to fill a personal need that many others apparently share.
+				We didn't think about commercial development and software protection in those days, but if we had we probably could have made something out of it.
+				On the other hand, I enjoyed the comradery of those gentler times and have no regrets.
+		</blockquote>
+	</section>
+	<section>
+		<h1>See Also</h1>
+		<ul>
+			<li>
+				<a href="ietf/rfc-742">IETF RFC-742</a>
+			</li>
+			<li>
+				<a href="ietf/rfc-1288">IETF RFC-1288</a>
+			</li>
+		</ul>
+	</section>
+	<footer>
+		<include src="author.html" />
+		<include src="license.html" />
+	</footer>
+</article>
+</main>
+</body>
+</html>
